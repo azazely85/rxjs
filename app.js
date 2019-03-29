@@ -25,4 +25,4 @@ app.use('/api/order', orderRoutes);
 app.use('/api/position', positionRoutes);
 app.use('/api/category', categoryRoutes);
 
-module.exports = app;
+export default app;
