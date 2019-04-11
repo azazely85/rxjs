@@ -1,8 +1,10 @@
 import bcrypt from 'bcryptjs';
-import User from '../models/User';
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 import keys from '../config/keys';
+import User from '../models/User';
+import errorHandler from '../utils/errorHandler';
+
 
 export async function login(req, res) {
   const candidate = await User.findOne({email: req.body.email});
@@ -47,7 +49,7 @@ export async function register(req, res) {
       await user.save();
       res.status(201).json(user)
     } catch (e) {
-    
+      errorHandler(res, e);
     }
     
   }
