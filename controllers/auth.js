@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs';
-const fs = require('fs');
 const jwt = require('jsonwebtoken');
 import keys from '../config/keys';
 import User from '../models/User';
@@ -11,7 +10,6 @@ export async function login(req, res) {
   if (candidate) {
     const passwordResult = bcrypt.compareSync(req.body.password, candidate.password);
     if (passwordResult) {
-      
       const token = jwt.sign({
         email: candidate.email,
         userId: candidate._id
@@ -24,7 +22,6 @@ export async function login(req, res) {
         message: 'Wrong password'
       });
     }
-    
   } else{
     res.status(404).json({
       message: 'User not found'
@@ -51,7 +48,8 @@ export async function register(req, res) {
     } catch (e) {
       errorHandler(res, e);
     }
-    
   }
-  
 }
+
+export default { login,
+  register };

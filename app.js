@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const passport = require('passport');
-const authRoutes = require('./routes/auth');
+import authRoutes from './routes/auth';
 const analyticsRoutes = require('./routes/analytics');
 const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
@@ -21,8 +21,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(passport.initialize())
-require('./middleware/passport')(passport)
+// app.use(passport.initialize())
+// require('./middleware/passport')(passport)
 app.use('/api/auth', authRoutes);
 app.use('/api/analytics', passport.authenticate(
   'jwt', { session: false }
