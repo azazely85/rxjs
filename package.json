@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index",
-    "server": "nodemon --exec babel-node --presets env index.js"
+    "server": "nodemon --exec babel-node --presets env index.js",
+    "client-install": "npm i --prefix client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -41,6 +44,7 @@
     "@babel/register": "^7.4.4",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "concurrently": "^4.1.2",
     "nodemon": "^1.18.10"
   }
 }
