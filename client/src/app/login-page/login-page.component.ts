@@ -18,11 +18,13 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute) { }
+    
   ngOnDestroy() {
     if (this.aSub) {
       this.aSub.unsubscribe()
     }
   }
+  
   ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
