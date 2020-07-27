@@ -32,11 +32,13 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       password: new FormControl(null, [Validators.required, Validators.minLength(6)])
     })
     this.route.queryParams.subscribe((params: Params) =>{
-    if (params['registered']) {
-      MaterialService.toast('Теперь вы можете войти в систему используя эти данные');
-    } else if (params['accessDenied']) {
-      MaterialService.toast('Для начала авторизуруйтесь в системе');
-    }
+      if (params['registered']) {
+        MaterialService.toast('Теперь вы можете войти в систему используя эти данные');
+      } else if (params['accessDenied']) {
+        MaterialService.toast('Для начала авторизуруйтесь в системе');
+      } else if (params['sessionExpired']) {
+        MaterialService.toast('Пожалуйста войдите в систему');
+      }
     });
   }
   onSubmit() {
