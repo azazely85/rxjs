@@ -26,25 +26,25 @@
   "homepage": "https://github.com/azazely85/angular_full#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.0",
-    "moment": "^2.24.0",
-    "mongoose": "^5.7.10",
-    "morgan": "^1.9.1",
-    "multer": "^1.4.1",
-    "passport": "^0.4.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.27",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pdf-text": "^0.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/register": "^7.4.4",
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "concurrently": "^4.1.2",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.19.4"
   }
 }
