@@ -40,7 +40,7 @@ export async function register(req, res) {
     const password = req.body.password;
     const user = new User({
       email: req.body.email,
-      password: bcrypt.hashSunc(password, salt)
+      password: bcrypt.hashSync(password, salt)
     });
     try {
       await user.save();
