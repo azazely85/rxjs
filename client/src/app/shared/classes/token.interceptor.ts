@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { AuthService } from "../services/auth.service";
+import { Injectable } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Injectable()
 
-export class TokenInterceptor implements HttpInterceptor{
+export class TokenInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService, private router: Router) {
   }
 
@@ -18,13 +18,13 @@ export class TokenInterceptor implements HttpInterceptor{
           Authorization: this.auth.getToken()
         }
 
-      })
+      });
     }
     return next.handle(req).pipe(
       catchError(
         (error: HttpErrorResponse) => this.handleAuthError(error)
       )
-    )
+    );
   }
 
   private handleAuthError(error: HttpErrorResponse): Observable<any> {
