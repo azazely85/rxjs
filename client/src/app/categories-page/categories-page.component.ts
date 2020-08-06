@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from '../shared/services/categories.service';
+import { Category } from '../shared/interfaces';
 
 @Component({
   selector: 'app-categories-page',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesPageComponent implements OnInit {
 
-  constructor() { }
+  isLoading = false;
+  categories: Category[] = [];
+
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit() {
+    this.isLoading = true;
+    this.categoriesService.fetch().subscribe(categories => {
+      this.isLoading = false;
+      this.categories = categories;
+    });
   }
 
 }
